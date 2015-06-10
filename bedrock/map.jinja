@@ -1,0 +1,14 @@
+{% set bedrock = salt['grains.filter_by']({
+    'default': {
+        'base': '/var/www/',
+        'user': 'www-data',
+        'db_host': '127.0.0.1',
+        'db_name': 'db',
+        'db_user': 'username',
+        'db_pass': 'better_change',
+        'wp_env': 'development',
+        'wp_host': 'http://127.0.0.1',
+        'wp_siteurl': 'http://127.0.0.1/wp',
+    },
+}, merge=salt['pillar.get']('bedrock:lookup')) %}
+
